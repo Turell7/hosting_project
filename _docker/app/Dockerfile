@@ -1,17 +1,13 @@
 FROM php:8.2-fpm
 
-# RUN apt-get update && apt-get install -y \
-    #   apt-utils \
-# RUN apt-get install -y \
-#       libpq-dev \
-#       libpng-dev
-
-# RUN apt-get install -y \
-#       libzip-dev \
-#       zip unzip \
-#       git
-
-RUN docker-php-ext-install pdo_mysql && \
+RUN apt-get update && apt-get install -y \
+      apt-utils \
+      libpq-dev \
+      libpng-dev \
+      libzip-dev \
+      zip unzip \
+      git && \
+      docker-php-ext-install pdo_mysql && \
       docker-php-ext-install bcmath && \
       docker-php-ext-install gd && \
       docker-php-ext-install zip && \
