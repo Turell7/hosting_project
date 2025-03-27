@@ -1,9 +1,12 @@
 FROM php:8.2-fpm
 
-RUN apt-get update && apt-get install -y \
-      apt-utils
+RUN sed -i 's|deb.debian.org|httpredir.debian.org|g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y apt-utils
 
-RUN apt-get install -y \
+RUN apt-get update && apt-get install -y \
+    #   apt-utils \
+# RUN apt-get install -y \
       libpq-dev \
       libpng-dev
 
