@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-RUN sed -i 's|deb.debian.org|httpredir.debian.org|g' /etc/apt/sources.list && \
+RUN sed -i 's|deb.debian.org|mirror.yandex.ru|g' /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y apt-utils
 
